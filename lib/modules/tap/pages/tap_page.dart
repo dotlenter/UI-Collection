@@ -2,9 +2,11 @@ import 'dart:async';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:ui_collection/widget/app_bar/common_app_bar.dart';
+import 'package:ui_collection/widget/app_bar/common_app_bar_type.dart';
 
-import '../../../widgets/bouncy/bouncy.dart';
-import '../../../widgets/particle/particle.dart';
+import '../../../widget/bouncy/bouncy.dart';
+import '../../../widget/particle/particle.dart';
 
 class TapPage extends StatefulWidget {
   const TapPage({Key? key}) : super(key: key);
@@ -185,6 +187,10 @@ class _TapPageState extends State<TapPage> with SingleTickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: const CommonAppBar(
+        pageTitle: 'Tapdat',
+        appBarType: CommonAppBarType.sub,
+      ),
       body: Container(
         key: _boxKey,
         child: Stack(

@@ -1,0 +1,4 @@
+enum CommonAppBarType {
+  normal,
+  sub,
+}

@@ -3,8 +3,8 @@ import 'package:flutter/services.dart';
 import 'package:get_it/get_it.dart';
 
 import 'app_config.dart';
-import 'modules/tap/pages/tap_page.dart';
-import 'widgets/debug_banner/debug_banner.dart';
+import 'modules/collection/pages/collection_page.dart';
+import 'widget/debug_banner/debug_banner.dart';
 
 class App extends StatefulWidget {
   const App({Key? key}) : super(key: key);
@@ -23,7 +23,7 @@ class _AppState extends State<App> {
       builder: (context, snapshot) {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
-          home: const TapPage(),
+          home: const CollectionPage(),
           theme: ThemeData(
             primarySwatch: Colors.blue,
             visualDensity: VisualDensity.adaptivePlatformDensity,
@@ -51,8 +51,8 @@ class _AppState extends State<App> {
 
   Widget _buildDebugBanner(BuildContext context) {
     return const Positioned(
-      top: 5,
       left: 5,
+      bottom: 5,
       child: SafeArea(
         child: DebugBanner(),
       ),
