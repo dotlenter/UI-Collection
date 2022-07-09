@@ -2,9 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get_it/get_it.dart';
 
-import 'app_config.dart';
-import 'modules/collection/pages/collection_page.dart';
-import 'widget/debug_banner/debug_banner.dart';
+import 'core/dependency_locator.dart';
+import 'helper/theme/theme_helper.dart';
+import 'modules/_master/page/master_page_route.dart';
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  setupLocator();
+  await configure();
+  runApp(App());
+}
 
 class App extends StatefulWidget {
   const App({Key? key}) : super(key: key);
@@ -14,32 +21,35 @@ class App extends StatefulWidget {
 }
 
 class _AppState extends State<App> {
+  final ThemeData theme = ThemeHelper().defaultTheme;
+
+  final MasterPageRoute masterPageRoute = MasterPageRoute();
+
   @override
   Widget build(BuildContext context) {
     SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
 
     return FutureBuilder(
       future: _initializeDependencies(),
-      builder: (context, snapshot) {
-        return MaterialApp(
-          debugShowCheckedModeBanner: false,
-          home: const CollectionPage(),
-          theme: ThemeData(
-            primarySwatch: Colors.blue,
-            visualDensity: VisualDensity.adaptivePlatformDensity,
-          ),
-          builder: (context, widget) {
-            final showDebugBanner =
-                AppConfig.of(context)?.buildFlavor == 'qa' ||
-                    AppConfig.of(context)?.buildFlavor == 'dev';
+      builder: (context, snapshot) => _buildApp(context),
+    );
+  }
 
-            return Stack(
-              children: [
-                widget!,
-                showDebugBanner ? _buildDebugBanner(context) : const SizedBox(),
-              ],
-            );
-          },
+  MaterialApp _buildApp(BuildContext context) {
+    final initialRoute = masterPageRoute.getRoute();
+
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      initialRoute: initialRoute,
+      theme: theme,
+      routes: <String, WidgetBuilder>{
+        masterPageRoute.getRoute(): (context) => masterPageRoute.getWidget(),
+      },
+      builder: (context, widget) {
+        return Stack(
+          children: [
+            widget!,
+          ],
         );
       },
     );
@@ -47,15 +57,5 @@ class _AppState extends State<App> {
 
   Future<void> _initializeDependencies() async {
     await GetIt.instance.allReady();
-  }
-
-  Widget _buildDebugBanner(BuildContext context) {
-    return const Positioned(
-      left: 5,
-      bottom: 5,
-      child: SafeArea(
-        child: DebugBanner(),
-      ),
-    );
   }
 }
