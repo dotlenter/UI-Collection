@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:ui_collection/widget/app_bar/common_app_bar_type.dart';
 
 class CommonAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -47,9 +46,8 @@ class CommonAppBar extends StatelessWidget implements PreferredSizeWidget {
               child: Text(
                 pageTitle,
                 textAlign: centeredTitle ? TextAlign.center : TextAlign.start,
-                style: GoogleFonts.staatliches(
+                style: TextStyle(
                   color: Colors.black,
-                  fontWeight: FontWeight.w400,
                   fontSize: 28,
                   height: 1.29,
                 ),

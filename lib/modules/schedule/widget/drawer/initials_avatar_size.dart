@@ -1,0 +1,1 @@
+enum InitialsAvatarSize { small, regular }

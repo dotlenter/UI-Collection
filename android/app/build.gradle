@@ -69,20 +69,6 @@ android {
             keyAlias RELEASE_KEY_ALIAS
             keyPassword RELEASE_KEY_PASSWORD
         }
-
-        huaweiDebug {
-            storeFile file(HUAWEI_DEBUG_KEYSTORE_FILE)
-            storePassword HUAWEI_DEBUG_KEYSTORE_PASSWORD
-            keyAlias HUAWEI_DEBUG_KEYSTORE_KEY_ALIAS
-            keyPassword HUAWEI_DEBUG_KEYSTORE_KEY_PASSWORD
-        }
-
-        huaweiRelease {
-            storeFile file(HUAWEI_RELEASE_KEYSTORE_FILE)
-            storePassword HUAWEI_RELEASE_KEYSTORE_PASSWORD
-            keyAlias HUAWEI_RELEASE_KEYSTORE_KEY_ALIAS
-            keyPassword HUAWEI_RELEASE_KEYSTORE_KEY_PASSWORD
-        }
     }
 
     flavorDimensions "default"
@@ -109,38 +95,9 @@ android {
 
         prod {
             dimension "default"
-            applicationId "penzo.ui_collection"
+            applicationId "enzo.ui_collection"
             manifestPlaceholders = [huaweiCpId: '', huaweiAppId: '']
             signingConfig googleplayReleaseSigningConfig // Added so previous build configurations will still work.
-        }
-
-        // Huawei Signing Configs
-        def huaweiDebugSigningConfig = signingConfigs.huaweiDebug
-        def huaweiReleaseSigningConfig = signingConfigs.huaweiRelease
-
-        // Huawei Flavors
-        huaweiDev {
-            dimension "default"
-            applicationIdSuffix "enzo.ui_collection.dev.huawei"
-            manifestPlaceholders = [googleMapsKey: '', huaweiCpId: HUAWEI_CP_ID, huaweiAppId: HUAWEI_DEV_APP_ID]
-            signingConfig huaweiDebugSigningConfig
-            proguardFiles getDefaultProguardFile('proguard-android.txt')
-        }
-
-        huaweiStaging {
-            dimension "default"
-            applicationIdSuffix "enzo.ui_collection.staging.huawei"
-            manifestPlaceholders = [googleMapsKey: '', huaweiCpId: HUAWEI_CP_ID, huaweiAppId: HUAWEI_STAGING_APP_ID]
-            signingConfig huaweiReleaseSigningConfig
-            proguardFiles getDefaultProguardFile('proguard-android.txt')
-        }
-
-        huaweiProd {
-            dimension "default"
-            applicationId "enzo.ui_collection.huawei"
-            manifestPlaceholders = [googleMapsKey: '', huaweiCpId: HUAWEI_CP_ID, huaweiAppId: HUAWEI_PROD_APP_ID]
-            signingConfig huaweiReleaseSigningConfig
-            proguardFiles getDefaultProguardFile('proguard-android.txt')
         }
     }
 }
