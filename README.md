@@ -37,7 +37,7 @@ Uncle Bob's clean architecture has 3 Layers:
     - Logic Holders (Flutter Bloc, Provider, Get, and Etc)
     - Widgets
 
-And overseeing all of this layers is the Core. With that being said. The file Structure for such an architecture is something like this:
+And overseeing all of these layer is the core. The file Structure for such an architecture is something like this:
 
 - lib
     - app
