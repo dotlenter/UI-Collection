@@ -19,7 +19,7 @@ samples, guidance on mobile development, and a full API reference.
 
 * Running on CLI (if ever): `flutter run -t lib/main_<variant>.dart --flavor <variant>;`
 
-* Upon cloning or merge, run `flutter pub run build_runner build --delete-conflicting-outputs` to generate some necessary code for the errors
+* Run `flutter pub run build_runner build --delete-conflicting-outputs` to generate necessary code for the errors mostly relating to the `freezed` pubspec.
 
 ---
 
