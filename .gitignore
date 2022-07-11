@@ -18,11 +18,10 @@
 # The .vscode folder contains launch configuration and tasks you configure in
 # VS Code which you may wish to be included in version control, so this line
 # is commented out by default.
-#.vscode/
+.vscode/settings.json
 
 # Flutter/Dart/Pub related
 **/doc/api/
-**/ios/Flutter/.last_build_id
 .dart_tool/
 .flutter-plugins
 .flutter-plugins-dependencies
@@ -34,13 +33,27 @@
 # Web related
 lib/generated_plugin_registrant.dart
 
-# Symbolication related
-app.*.symbols
+# Exceptions to above rules.
+!/packages/flutter_tools/test/data/dart_dependencies_test/**/.packages
 
-# Obfuscation related
-app.*.map.json
+# iOS Build Files
+**/ios/*.ipa
+**/ios/*.app.dSYM.zip
 
-# Android Studio will place build artifacts here
-/android/app/debug
-/android/app/profile
-/android/app/release
+# For our open source projects we choose to exclude some metadata that contains private information
+android/fastlane/report.xml
+ios/fastlane/report.xml
+ios/fastlane/Preview.html
+ios/fastlane/metadata/review_information
+ios/fastlane/metadata/trade_representative_contact_information
+ios/.last_build_id
+
+# build_runner generated files 
+**/*.config.dart
+**/*.gr.dart
+**/*.g.dart
+**/*.freezed.dart
+**/*.mocks.dart
+
+# For generated local unit test coverage
+/coverage
