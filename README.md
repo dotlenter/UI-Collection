@@ -17,7 +17,11 @@ samples, guidance on mobile development, and a full API reference.
 
 ## Notes
 
-Running on CLI (if ever): `flutter run -t lib/main_<variant>.dart --flavor <variant>;`
+* Running on CLI (if ever): `flutter run -t lib/main_<variant>.dart --flavor <variant>;`
+
+* Upon cloning or merge, run `flutter pub run build_runner build --delete-conflicting-outputs` to generate some necessary code for the errors
+
+---
 
 **ARCHITECTURE** – functional. Only domain can access both the page and data. Page cannot access data and vice-versa
 
