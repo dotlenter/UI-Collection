@@ -22,7 +22,7 @@ class _AppDrawerState extends State<AppDrawer> {
           color: CommonColors.neutral[0],
           child: SafeArea(
             child: Column(
-              children: const <Widget>[
+              children: <Widget>[
                 AppDrawerHeaderWidget(),
               ],
             ),
