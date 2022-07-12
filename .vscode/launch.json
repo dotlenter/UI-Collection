@@ -5,6 +5,17 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "Flutter: Run all Tests",
+            "type": "dart",
+            "request": "launch",
+            "program": "./test/",
+            "args": [
+                "--flavor",
+                "dev",
+                "--no-sound-null-safety"
+            ]
+        },
+        {
             "name": "Main",
             "request": "launch",
             "type": "dart",
