@@ -12,26 +12,23 @@ part 'schedule_state.dart';
 
 @injectable
 class ScheduleBloc extends Bloc<ScheduleEvent, ScheduleState> {
-  ScheduleBloc() : super(const _Initial()) {
+  ScheduleBloc() : super(_Initial()) {
     on<ScheduleEvent>(
       (event, emit) => event.when(
-        increment: (value) => _handleIncrement(
-          emit,
-          value,
-        ),
         load: (DateTime monthYear, List<ScheduleItemEntity> schedules) {
-          return null;
+          return _handleLoad(emit, monthYear, schedules);
         },
       ),
     );
   }
 
-  FutureOr<void> _handleLoad(
+  Future<FutureOr<void>> _handleLoad(
     Emitter<ScheduleState> emit,
     DateTime monthYear,
     List<ScheduleItemEntity> schedules,
-  ) {
-    emit(const ScheduleState.initial());
+  ) async {
+    emit(const _Loading());
+    await Future.delayed(const Duration(milliseconds: 10));
 
     schedules = [
       ScheduleItemEntity(
@@ -66,19 +63,8 @@ class ScheduleBloc extends Bloc<ScheduleEvent, ScheduleState> {
           dateTime: DateTime(2022, 7, 7)),
     ];
 
-    emit(ScheduleState.loaded(monthYear: monthYear, schedules: schedules));
-  }
+    monthYear = "July 2022" as DateTime;
 
-  FutureOr<void> _handleIncrement(
-    Emitter<ScheduleState> emit,
-    int value,
-  ) {
-    emit(const ScheduleState.initial());
-
-    value += 1;
-
-    emit(ScheduleState.incremented(
-      count: value,
-    ));
+    emit(_Loaded(monthYear: monthYear, schedules: schedules));
   }
 }

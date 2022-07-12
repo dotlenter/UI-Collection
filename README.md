@@ -42,6 +42,7 @@ That is what you pass onto the page/UI
     Note: Enzo will be creating the contents of schedule_state.dart but that's only for comparison
 
     In bloc, you are calling an event that returns a state
+    
 ## Advance Flutter Structures 101
 
 This project is a playground for new devs to master the Featured First Architecture.
