@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 import '../../domain/entities/schedule_item_entity.dart';
 
@@ -19,7 +20,9 @@ class ScheduleItem extends StatelessWidget {
             child: Column(
               children: [
                 Text(schedule.dateTime.day.toString()),
-                const Text("Sun")
+                Text(DateFormat(DateFormat.ABBR_WEEKDAY)
+                    .format(schedule.dateTime)
+                    .toString())
               ],
             ),
           ),
@@ -27,7 +30,7 @@ class ScheduleItem extends StatelessWidget {
             padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 8),
             child: Column(
               children: [
-                Text("${schedule.shiftStart}-${schedule.shiftEnd}"),
+                Text("${schedule.shiftStart} - ${schedule.shiftEnd}"),
                 Text(schedule.status),
               ],
             ),

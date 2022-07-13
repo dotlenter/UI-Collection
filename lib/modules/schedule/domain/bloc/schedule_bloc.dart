@@ -3,6 +3,8 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
+import 'package:intl/intl.dart';
+import 'package:ui_collection/core/mocked_entities/schedule_mocked_entities/schedule_mocked_entities.dart';
 
 import '../entities/schedule_item_entity.dart';
 
@@ -23,60 +25,55 @@ class ScheduleBloc extends Bloc<ScheduleEvent, ScheduleState> {
   }
 
   Future<FutureOr<void>> _handleLoad(Emitter<ScheduleState> emit) async {
-    final monthChoice = [
-      "January",
-      "February",
-      "March",
-      "April",
-      "May",
-      "June",
-      "July",
-      "August",
-      "September",
-      "November",
-      "December"
-    ];
-
     emit(const _Loading());
     await Future.delayed(const Duration(milliseconds: 100));
 
-    List<ScheduleItemEntity> schedules = [
-      ScheduleItemEntity(
-          dayOfWeek: 1,
-          status: "Normal Shift",
-          shiftStart: "09:00 AM",
-          shiftEnd: "06:00 PM",
-          dateTime: DateTime(2022, 6, 3)),
-      ScheduleItemEntity(
-          dayOfWeek: 2,
-          status: "Normal Shift",
-          shiftStart: "09:00 AM",
-          shiftEnd: "06:00 PM",
-          dateTime: DateTime(2022, 6, 4)),
-      ScheduleItemEntity(
-          dayOfWeek: 3,
-          status: "Normal Shift",
-          shiftStart: "09:00 AM",
-          shiftEnd: "06:00 PM",
-          dateTime: DateTime(2022, 6, 5)),
-      ScheduleItemEntity(
-          dayOfWeek: 4,
-          status: "Normal Shift",
-          shiftStart: "09:00 AM",
-          shiftEnd: "06:00 PM",
-          dateTime: DateTime(2022, 6, 6)),
-      ScheduleItemEntity(
-          dayOfWeek: 5,
-          status: "Normal Shift",
-          shiftStart: "09:00 AM",
-          shiftEnd: "06:00 PM",
-          dateTime: DateTime(2022, 6, 7)),
-    ];
+    List<ScheduleItemEntity> schedules = ScheduleMockedEntities.getItems();
+    // List<ScheduleItemEntity> schedules = [
+    //   ScheduleItemEntity(
+    //       status: "Rest Day",
+    //       shiftStart: "--:-- --",
+    //       shiftEnd: "--:-- --",
+    //       dateTime: DateTime(2022, 7, 10)),
+    //   ScheduleItemEntity(
+    //       status: "Normal Shift",
+    //       shiftStart: "09:00 AM",
+    //       shiftEnd: "06:00 PM",
+    //       dateTime: DateTime(2022, 7, 11)),
+    //   ScheduleItemEntity(
+    //       status: "Normal Shift",
+    //       shiftStart: "09:00 AM",
+    //       shiftEnd: "06:00 PM",
+    //       dateTime: DateTime(2022, 7, 12)),
+    //   ScheduleItemEntity(
+    //       status: "Normal Shift",
+    //       shiftStart: "09:00 AM",
+    //       shiftEnd: "06:00 PM",
+    //       dateTime: DateTime(2022, 7, 13)),
+    //   ScheduleItemEntity(
+    //       status: "Normal Shift",
+    //       shiftStart: "09:00 AM",
+    //       shiftEnd: "06:00 PM",
+    //       dateTime: DateTime(2022, 7, 14)),
+    //   ScheduleItemEntity(
+    //       status: "Normal Shift",
+    //       shiftStart: "09:00 AM",
+    //       shiftEnd: "06:00 PM",
+    //       dateTime: DateTime(2022, 7, 15)),
+    //   ScheduleItemEntity(
+    //       status: "Rest Day",
+    //       shiftStart: "--:-- --",
+    //       shiftEnd: "--:-- --",
+    //       dateTime: DateTime(2022, 7, 16)),
+    // ];
 
-    DateTime dateTime = DateTime(2022, 6);
+    String monthYear() {
+      if (schedules.first.dateTime.month != schedules.last.dateTime.month) {
+        return "${DateFormat(DateFormat.MONTH).format(schedules.first.dateTime)} - ${DateFormat(DateFormat.MONTH).format(schedules.last.dateTime)} ${schedules.first.dateTime.year}";
+      }
+      return "${DateFormat(DateFormat.MONTH).format(schedules.first.dateTime)} ${schedules.first.dateTime.year}";
+    }
 
-    String monthYear = "${monthChoice[dateTime.month]} ${dateTime.year}";
-
-    emit(_Loaded(monthYear: monthYear, schedules: schedules));
+    emit(_Loaded(monthYear: monthYear(), schedules: schedules));
   }
 }

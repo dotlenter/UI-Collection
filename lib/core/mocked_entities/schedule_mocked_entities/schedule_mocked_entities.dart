@@ -1,38 +1,41 @@
-import 'package:flutter/material.dart';
 import 'package:ui_collection/modules/schedule/domain/entities/schedule_item_entity.dart';
 
 class ScheduleMockedEntities {
-  static List<ScheduleItemEntity> getItems(BuildContext context) => [
+  static List<ScheduleItemEntity> getItems() => [
         ScheduleItemEntity(
-            dayOfWeek: 1,
+            status: "Rest Day",
+            shiftStart: "--:-- --",
+            shiftEnd: "--:-- --",
+            dateTime: DateTime(2022, 7, 10)),
+        ScheduleItemEntity(
             status: "Normal Shift",
             shiftStart: "09:00 AM",
             shiftEnd: "06:00 PM",
-            dateTime: DateTime(2022, 7, 3)),
+            dateTime: DateTime(2022, 7, 11)),
         ScheduleItemEntity(
-            dayOfWeek: 2,
             status: "Normal Shift",
             shiftStart: "09:00 AM",
             shiftEnd: "06:00 PM",
-            dateTime: DateTime(2022, 7, 4)),
+            dateTime: DateTime(2022, 7, 12)),
         ScheduleItemEntity(
-            dayOfWeek: 3,
             status: "Normal Shift",
             shiftStart: "09:00 AM",
             shiftEnd: "06:00 PM",
-            dateTime: DateTime(2022, 7, 5)),
+            dateTime: DateTime(2022, 7, 13)),
         ScheduleItemEntity(
-            dayOfWeek: 4,
             status: "Normal Shift",
             shiftStart: "09:00 AM",
             shiftEnd: "06:00 PM",
-            dateTime: DateTime(2022, 7, 6)),
+            dateTime: DateTime(2022, 7, 14)),
         ScheduleItemEntity(
-            dayOfWeek: 5,
             status: "Normal Shift",
             shiftStart: "09:00 AM",
             shiftEnd: "06:00 PM",
-            dateTime: DateTime(2022, 7, 7)),
+            dateTime: DateTime(2022, 7, 15)),
+        ScheduleItemEntity(
+            status: "Rest Day",
+            shiftStart: "--:-- --",
+            shiftEnd: "--:-- --",
+            dateTime: DateTime(2022, 7, 16)),
       ];
-  static DateTime getDateTime(BuildContext context) => DateTime(2022, 7);
 }
