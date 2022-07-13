@@ -37,18 +37,18 @@ class _SchedulePageState extends State<SchedulePage> {
         body: BlocBuilder<ScheduleBloc, ScheduleState>(
           builder: (context, state) {
             return state.when(initial: () {
+              BlocProvider.of<ScheduleBloc>(context).add(ScheduleEvent.load());
               return const Center(
                 child: CircularProgressIndicator(),
               );
-            }, loaded:
-                (DateTime monthYear, List<ScheduleItemEntity> schedules) {
+            }, loaded: (String monthYear, List<ScheduleItemEntity> schedules) {
               return Column(
                 children: [
                   Container(
                       alignment: Alignment.centerLeft,
                       padding: const EdgeInsets.symmetric(
                           vertical: 10, horizontal: 16),
-                      child: Text("month year")),
+                      child: Text(monthYear)),
                   const Divider(
                     thickness: 1.0,
                   ),

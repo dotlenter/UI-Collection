@@ -5,7 +5,7 @@ class ScheduleState with _$ScheduleState {
   const factory ScheduleState.initial() = _Initial;
   const factory ScheduleState.loading() = _Loading;
   const factory ScheduleState.loaded({
-    required DateTime monthYear,
+    required String monthYear,
     required List<ScheduleItemEntity> schedules,
   }) = _Loaded;
 }

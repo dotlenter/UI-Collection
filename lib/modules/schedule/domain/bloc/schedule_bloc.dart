@@ -15,55 +15,67 @@ class ScheduleBloc extends Bloc<ScheduleEvent, ScheduleState> {
   ScheduleBloc() : super(_Initial()) {
     on<ScheduleEvent>(
       (event, emit) => event.when(
-        load: (DateTime monthYear, List<ScheduleItemEntity> schedules) {
-          return _handleLoad(emit, monthYear, schedules);
+        load: () {
+          return _handleLoad(emit);
         },
       ),
     );
   }
 
-  Future<FutureOr<void>> _handleLoad(
-    Emitter<ScheduleState> emit,
-    DateTime monthYear,
-    List<ScheduleItemEntity> schedules,
-  ) async {
-    emit(const _Loading());
-    await Future.delayed(const Duration(milliseconds: 10));
+  Future<FutureOr<void>> _handleLoad(Emitter<ScheduleState> emit) async {
+    final monthChoice = [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "November",
+      "December"
+    ];
 
-    schedules = [
+    emit(const _Loading());
+    await Future.delayed(const Duration(milliseconds: 100));
+
+    List<ScheduleItemEntity> schedules = [
       ScheduleItemEntity(
           dayOfWeek: 1,
           status: "Normal Shift",
           shiftStart: "09:00 AM",
           shiftEnd: "06:00 PM",
-          dateTime: DateTime(2022, 7, 3)),
+          dateTime: DateTime(2022, 6, 3)),
       ScheduleItemEntity(
           dayOfWeek: 2,
           status: "Normal Shift",
           shiftStart: "09:00 AM",
           shiftEnd: "06:00 PM",
-          dateTime: DateTime(2022, 7, 4)),
+          dateTime: DateTime(2022, 6, 4)),
       ScheduleItemEntity(
           dayOfWeek: 3,
           status: "Normal Shift",
           shiftStart: "09:00 AM",
           shiftEnd: "06:00 PM",
-          dateTime: DateTime(2022, 7, 5)),
+          dateTime: DateTime(2022, 6, 5)),
       ScheduleItemEntity(
           dayOfWeek: 4,
           status: "Normal Shift",
           shiftStart: "09:00 AM",
           shiftEnd: "06:00 PM",
-          dateTime: DateTime(2022, 7, 6)),
+          dateTime: DateTime(2022, 6, 6)),
       ScheduleItemEntity(
           dayOfWeek: 5,
           status: "Normal Shift",
           shiftStart: "09:00 AM",
           shiftEnd: "06:00 PM",
-          dateTime: DateTime(2022, 7, 7)),
+          dateTime: DateTime(2022, 6, 7)),
     ];
 
-    monthYear = "July 2022" as DateTime;
+    DateTime dateTime = DateTime(2022, 6);
+
+    String monthYear = "${monthChoice[dateTime.month]} ${dateTime.year}";
 
     emit(_Loaded(monthYear: monthYear, schedules: schedules));
   }
