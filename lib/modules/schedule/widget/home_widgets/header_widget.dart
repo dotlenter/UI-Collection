@@ -1,25 +1,26 @@
 import 'package:flutter/material.dart';
 
-import 'user_details_widget.dart';
+import 'home_user_details_widget.dart';
 
-class AppDrawerHeaderWidget extends StatelessWidget {
-  const AppDrawerHeaderWidget({Key? key}) : super(key: key);
+class HeaderWidget extends StatelessWidget {
+  const HeaderWidget({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(
         left: 16,
-        right: 24,
-        top: 68,
+        right: 16,
+        top: 24,
         bottom: 24,
       ),
       child: Column(
         children: const [
-          UserDetailsWidget(
+          HomeUserDetailsWidget(
             firstName: 'Mobile',
             lastName: 'Developer',
-            position: 'Intern',
+            shiftStart: "9:00 AM",
+            shiftEnd: "6:00 PM",
           ),
         ],
       ),

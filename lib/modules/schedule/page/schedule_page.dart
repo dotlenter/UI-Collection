@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:ui_collection/modules/schedule/widget/schedule_item/schedule_item.dart';
+import 'package:ui_collection/modules/schedule/widget/schedule_item/schedule_item_widget.dart';
 import 'package:ui_collection/widget/colors/common_color.dart';
 
 import '../domain/bloc/schedule_bloc.dart';
