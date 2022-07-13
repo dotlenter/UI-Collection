@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ui_collection/modules/schedule/widget/schedule_item/schedule_item.dart';
+import 'package:ui_collection/widget/colors/common_color.dart';
 
 import '../domain/bloc/schedule_bloc.dart';
 import '../domain/entities/schedule_item_entity.dart';
@@ -33,7 +34,25 @@ class _SchedulePageState extends State<SchedulePage> {
     return BlocProvider(
       create: (context) => ScheduleBloc(),
       child: Scaffold(
-        appBar: AppBar(),
+        appBar: AppBar(
+            title: Text(
+              "Weekly Schedule",
+              style: TextStyle(
+                fontWeight: FontWeight.w500,
+                fontSize: 17,
+                color: CommonColors.neutral[800],
+              ),
+            ),
+            backgroundColor: CommonColors.transparent,
+            elevation: 0,
+            iconTheme: IconThemeData(color: CommonColors.green),
+            bottom: PreferredSize(
+              child: Container(
+                color: CommonColors.neutral[30],
+                height: 1.0,
+              ),
+              preferredSize: Size.fromHeight(1),
+            )),
         body: BlocBuilder<ScheduleBloc, ScheduleState>(
           builder: (context, state) {
             return state.when(initial: () {
@@ -48,7 +67,14 @@ class _SchedulePageState extends State<SchedulePage> {
                       alignment: Alignment.centerLeft,
                       padding: const EdgeInsets.symmetric(
                           vertical: 10, horizontal: 16),
-                      child: Text(monthYear)),
+                      child: Text(
+                        monthYear,
+                        style: TextStyle(
+                            fontWeight: FontWeight.w500,
+                            color: CommonColors.neutral[300],
+                            fontSize: 16,
+                            height: 1.5),
+                      )),
                   const Divider(
                     thickness: 1.0,
                   ),
@@ -89,8 +115,8 @@ class _SchedulePageState extends State<SchedulePage> {
         schedule: schedules[index],
       ),
       separatorBuilder: (context, index) => const Divider(
-        indent: 72,
-        endIndent: 16,
+        indent: 70,
+        endIndent: 18,
         thickness: 1,
       ),
       itemCount: schedules.length,

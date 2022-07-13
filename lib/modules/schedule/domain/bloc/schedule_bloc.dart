@@ -29,43 +29,6 @@ class ScheduleBloc extends Bloc<ScheduleEvent, ScheduleState> {
     await Future.delayed(const Duration(milliseconds: 100));
 
     List<ScheduleItemEntity> schedules = ScheduleMockedEntities.getItems();
-    // List<ScheduleItemEntity> schedules = [
-    //   ScheduleItemEntity(
-    //       status: "Rest Day",
-    //       shiftStart: "--:-- --",
-    //       shiftEnd: "--:-- --",
-    //       dateTime: DateTime(2022, 7, 10)),
-    //   ScheduleItemEntity(
-    //       status: "Normal Shift",
-    //       shiftStart: "09:00 AM",
-    //       shiftEnd: "06:00 PM",
-    //       dateTime: DateTime(2022, 7, 11)),
-    //   ScheduleItemEntity(
-    //       status: "Normal Shift",
-    //       shiftStart: "09:00 AM",
-    //       shiftEnd: "06:00 PM",
-    //       dateTime: DateTime(2022, 7, 12)),
-    //   ScheduleItemEntity(
-    //       status: "Normal Shift",
-    //       shiftStart: "09:00 AM",
-    //       shiftEnd: "06:00 PM",
-    //       dateTime: DateTime(2022, 7, 13)),
-    //   ScheduleItemEntity(
-    //       status: "Normal Shift",
-    //       shiftStart: "09:00 AM",
-    //       shiftEnd: "06:00 PM",
-    //       dateTime: DateTime(2022, 7, 14)),
-    //   ScheduleItemEntity(
-    //       status: "Normal Shift",
-    //       shiftStart: "09:00 AM",
-    //       shiftEnd: "06:00 PM",
-    //       dateTime: DateTime(2022, 7, 15)),
-    //   ScheduleItemEntity(
-    //       status: "Rest Day",
-    //       shiftStart: "--:-- --",
-    //       shiftEnd: "--:-- --",
-    //       dateTime: DateTime(2022, 7, 16)),
-    // ];
 
     String monthYear() {
       if (schedules.first.dateTime.month != schedules.last.dateTime.month) {
