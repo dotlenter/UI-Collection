@@ -22,7 +22,6 @@ class ScheduleItem extends StatelessWidget {
   }
 
   getStatusDisplay(String status) {
-    print(status != "Normal Shift" && status != "Rest Day");
     if (status != "Normal Shift" && status != "Rest Day") {
       return Row(
         children: [
