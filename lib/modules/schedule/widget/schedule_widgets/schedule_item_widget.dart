@@ -10,12 +10,12 @@ class ScheduleItem extends StatelessWidget {
   const ScheduleItem({Key? key, required this.schedule}) : super(key: key);
 
   getItemColor(DateTime dateTime, String status) {
-    if (status != "Normal Shift" && status != "Rest Day") {
-      return CommonColors.orange[300];
-    }
     if (dateTime.year == DateTime.now().year &&
         dateTime.month == DateTime.now().month &&
         dateTime.day == DateTime.now().day) {
+      if (status != "Normal Shift" && status != "Rest Day") {
+        return CommonColors.orange[300];
+      }
       return CommonColors.blue[300];
     }
     return CommonColors.neutral[500];

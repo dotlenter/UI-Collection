@@ -23,9 +23,9 @@ class ScheduleMockedEntities {
             shiftEnd: "06:00 PM",
             dateTime: DateTime(2022, 7, 13)),
         ScheduleItemEntity(
-            status: "Normal Shift",
-            shiftStart: "09:00 AM",
-            shiftEnd: "06:00 PM",
+            status: "Schedule Adjusted",
+            shiftStart: "09:30 AM",
+            shiftEnd: "06:30 PM",
             dateTime: DateTime(2022, 7, 14)),
         ScheduleItemEntity(
             status: "Normal Shift",

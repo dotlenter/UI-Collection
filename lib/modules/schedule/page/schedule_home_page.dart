@@ -113,7 +113,8 @@ class _SchedulePageState extends State<ScheduleHomePage> {
                   child: Container(
                     padding: EdgeInsets.all(16),
                     decoration: BoxDecoration(
-                        border: Border.all(color: CommonColors.neutral[30]!)),
+                        border: Border(
+                            top: BorderSide(color: CommonColors.neutral[30]!))),
                     child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
