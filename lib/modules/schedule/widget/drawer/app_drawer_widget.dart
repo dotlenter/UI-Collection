@@ -28,16 +28,9 @@ class _AppDrawerState extends State<AppDrawer> {
           color: CommonColors.neutral[0],
           child: SafeArea(
             child: Column(
-              children: <Widget>[
+              children: const <Widget>[
                 AppDrawerHeaderWidget(),
-                TextButton(
-                    onPressed: () {
-                      SchedulePageRoute().navigate(context);
-                    },
-                    child: Text(
-                      "View Schedule",
-                      style: TextStyle(color: CommonColors.green),
-                    ))
+                
               ],
             ),
           ),

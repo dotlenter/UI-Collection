@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:ui_collection/modules/schedule/domain/entities/schedule_item_entity.dart';
 
 import 'home_user_details_widget.dart';
 
 class HeaderWidget extends StatelessWidget {
-  const HeaderWidget({Key? key}) : super(key: key);
+  final ScheduleItemEntity schedule;
+
+  const HeaderWidget({Key? key, required this.schedule}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -15,12 +18,12 @@ class HeaderWidget extends StatelessWidget {
         bottom: 24,
       ),
       child: Column(
-        children: const [
+        children: [
           HomeUserDetailsWidget(
             firstName: 'Mobile',
             lastName: 'Developer',
-            shiftStart: "9:00 AM",
-            shiftEnd: "6:00 PM",
+            shiftStart: schedule.shiftStart,
+            shiftEnd: schedule.shiftEnd,
           ),
         ],
       ),
