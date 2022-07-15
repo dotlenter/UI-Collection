@@ -15,6 +15,14 @@ For help getting started with Flutter, view our
 [online documentation](https://flutter.dev/docs), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
 
+## Labels and Credits
+
+**Schedule Page** feature created by **Carlos Angelo L. Rayel**
+
+**Innovation Sprint** of **John Mar Lorenzo**
+
+**UI Design** of **Jairah-Mae Viduya**
+
 ## Notes
 
 * Running on CLI (if ever): `flutter run -t lib/main_<variant>.dart --flavor <variant>;`

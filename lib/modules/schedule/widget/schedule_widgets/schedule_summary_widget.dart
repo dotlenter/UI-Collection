@@ -27,6 +27,7 @@ class ScheduleSummaryWidget extends StatelessWidget {
       }
       return CommonColors.blue[300]!;
     }
+    if ([6, 7].contains(dateTime.weekday)) return CommonColors.neutral[10]!;
     return CommonColors.neutral[0]!;
   }
 

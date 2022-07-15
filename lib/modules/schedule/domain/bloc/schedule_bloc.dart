@@ -27,7 +27,7 @@ class ScheduleBloc extends Bloc<ScheduleEvent, ScheduleState> {
   Future<FutureOr<void>> _handleLoad(
       Emitter<ScheduleState> emit, DateTime? currDate) async {
     emit(const _Loading());
-    await Future.delayed(const Duration(milliseconds: 300));
+    await Future.delayed(const Duration(milliseconds: 1000));
 
     DateTime thisDate = currDate ?? DateTime.now();
 

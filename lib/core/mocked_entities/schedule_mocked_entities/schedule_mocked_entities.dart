@@ -2,6 +2,44 @@ import 'package:flutter/material.dart';
 import 'package:ui_collection/modules/schedule/domain/entities/schedule_item_entity.dart';
 
 class ScheduleMockedEntities {
+  static List<ScheduleItemEntity> mockWeek = [
+    ScheduleItemEntity(
+        status: "Rest Day",
+        shiftStart: "--:-- --",
+        shiftEnd: "--:-- --",
+        dateTime: DateTime(2022, 7, 3)),
+    ScheduleItemEntity(
+        status: "Schedule Adjusted",
+        shiftStart: "09:30 AM",
+        shiftEnd: "06:30 PM",
+        dateTime: DateTime(2022, 7, 4)),
+    ScheduleItemEntity(
+        status: "Normal Shift",
+        shiftStart: "09:00 AM",
+        shiftEnd: "06:00 PM",
+        dateTime: DateTime(2022, 7, 5)),
+    ScheduleItemEntity(
+        status: "Normal Shift",
+        shiftStart: "09:00 AM",
+        shiftEnd: "06:00 PM",
+        dateTime: DateTime(2022, 7, 6)),
+    ScheduleItemEntity(
+        status: "Schedule Adjusted",
+        shiftStart: "09:30 AM",
+        shiftEnd: "06:30 PM",
+        dateTime: DateTime(2022, 7, 7)),
+    ScheduleItemEntity(
+        status: "Normal Shift",
+        shiftStart: "09:00 AM",
+        shiftEnd: "06:00 PM",
+        dateTime: DateTime(2022, 7, 8)),
+    ScheduleItemEntity(
+        status: "Rest Day",
+        shiftStart: "--:-- --",
+        shiftEnd: "--:-- --",
+        dateTime: DateTime(2022, 7, 9)),
+  ];
+
   static List<ScheduleItemEntity> items = [
     ScheduleItemEntity(
         status: "Rest Day",
