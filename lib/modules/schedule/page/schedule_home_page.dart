@@ -87,7 +87,8 @@ class _SchedulePageState extends State<ScheduleHomePage> {
             return const Center(
               child: CircularProgressIndicator(),
             );
-          }, loaded: (String monthYear, List<ScheduleItemEntity> schedules) {
+          }, loaded: (String monthYear, DateTime currDate,
+              List<ScheduleItemEntity> schedules) {
             return Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.start,

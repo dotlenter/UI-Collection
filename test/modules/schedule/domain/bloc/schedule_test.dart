@@ -1,7 +1,9 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:ui_collection/core/mocked_entities/schedule_mocked_entities/schedule_mocked_entities.dart';
 import 'package:ui_collection/modules/schedule/domain/entities/schedule_item_entity.dart';
 
-void main(List<String> args) {
+void main() {
   test('Schedule entity should be of type ScheduleItemEntity', () {
     final ScheduleItemEntity schedule = ScheduleItemEntity(
         status: "Regular Shift",
@@ -10,5 +12,12 @@ void main(List<String> args) {
         dateTime: DateTime(2022, 7, 4));
 
     expect(schedule.status, "Regular Shift");
+  });
+
+  test('Should return array of ScheduleItemEntity', () {
+    final week = ScheduleMockedEntities.getItems(
+        DateUtils.dateOnly(DateTime.now()).subtract(Duration(days: 7)));
+
+    expect(week[0].dateTime, DateTime(2022, 7, 3));
   });
 }

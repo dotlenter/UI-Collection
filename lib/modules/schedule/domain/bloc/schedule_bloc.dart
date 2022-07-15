@@ -17,18 +17,22 @@ class ScheduleBloc extends Bloc<ScheduleEvent, ScheduleState> {
   ScheduleBloc() : super(_Initial()) {
     on<ScheduleEvent>(
       (event, emit) => event.when(
-        load: () {
-          return _handleLoad(emit);
+        load: (DateTime? currDate) {
+          return _handleLoad(emit, currDate);
         },
       ),
     );
   }
 
-  Future<FutureOr<void>> _handleLoad(Emitter<ScheduleState> emit) async {
+  Future<FutureOr<void>> _handleLoad(
+      Emitter<ScheduleState> emit, DateTime? currDate) async {
     emit(const _Loading());
-    await Future.delayed(const Duration(milliseconds: 100));
+    await Future.delayed(const Duration(milliseconds: 300));
 
-    List<ScheduleItemEntity> schedules = ScheduleMockedEntities.getItems();
+    DateTime thisDate = currDate ?? DateTime.now();
+
+    List<ScheduleItemEntity> schedules =
+        ScheduleMockedEntities.getItems(thisDate);
 
     String monthYear() {
       if (schedules.first.dateTime.month != schedules.last.dateTime.month) {
@@ -37,6 +41,7 @@ class ScheduleBloc extends Bloc<ScheduleEvent, ScheduleState> {
       return "${DateFormat(DateFormat.MONTH).format(schedules.first.dateTime)} ${schedules.first.dateTime.year}";
     }
 
-    emit(_Loaded(monthYear: monthYear(), schedules: schedules));
+    emit(_Loaded(
+        monthYear: monthYear(), currDate: thisDate, schedules: schedules));
   }
 }

@@ -59,12 +59,15 @@ class ScheduleItem extends StatelessWidget {
             padding: const EdgeInsets.symmetric(vertical: 18, horizontal: 14),
             child: Column(
               children: [
-                Text(
-                  schedule.dateTime.day.toString(),
-                  style: TextStyle(
-                      fontWeight: FontWeight.w500,
-                      fontSize: 16,
-                      color: getItemColor(schedule.dateTime, schedule.status)),
+                FittedBox(
+                  child: Text(
+                    schedule.dateTime.day.toString(),
+                    style: TextStyle(
+                        fontWeight: FontWeight.w500,
+                        fontSize: 16,
+                        color:
+                            getItemColor(schedule.dateTime, schedule.status)),
+                  ),
                 ),
                 Text(
                     DateFormat(DateFormat.ABBR_WEEKDAY)
