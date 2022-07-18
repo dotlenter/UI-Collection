@@ -71,30 +71,25 @@ class ScheduleSummaryWidget extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Expanded(
-            child: Container(
-              alignment: Alignment.center,
-              child: Text(
-                DateFormat(DateFormat.ABBR_WEEKDAY)
-                    .format(schedule.dateTime)
-                    .toString()
-                    .toUpperCase(),
-                style:
-                    TextStyle(color: CommonColors.neutral[500], fontSize: 12),
-              ),
+          Container(
+            alignment: Alignment.center,
+            child: Text(
+              DateFormat(DateFormat.ABBR_WEEKDAY)
+                  .format(schedule.dateTime)
+                  .toString()
+                  .toUpperCase(),
+              style: TextStyle(color: CommonColors.neutral[500], fontSize: 12),
             ),
           ),
-          Expanded(
-            child: Container(
-              width: 49,
-              height: 49,
-              decoration: BoxDecoration(
-                  border:
-                      Border.all(color: CommonColors.neutral[30]!, width: 1.0),
-                  color: getTileColor(schedule.dateTime, schedule.status)),
-              child: Center(
-                  child: getDayWidget(schedule.dateTime, schedule.status)),
-            ),
+          Container(
+            width: 49,
+            height: 49,
+            decoration: BoxDecoration(
+                border:
+                    Border.all(color: CommonColors.neutral[30]!, width: 1.0),
+                color: getTileColor(schedule.dateTime, schedule.status)),
+            child:
+                Center(child: getDayWidget(schedule.dateTime, schedule.status)),
           )
         ],
       ),

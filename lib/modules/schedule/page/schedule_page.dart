@@ -49,8 +49,10 @@ class _SchedulePageState extends State<SchedulePage> {
             }, loaded: (String monthYear, DateTime currDate,
                 List<ScheduleItemEntity> schedules) {
               return Column(
+                mainAxisSize: MainAxisSize.min,
                 children: [
                   Container(
+                      //Month and Year label = pagination
                       alignment: Alignment.centerLeft,
                       padding: const EdgeInsets.only(
                           left: 16, right: 16, top: 4, bottom: 0),
@@ -98,19 +100,18 @@ class _SchedulePageState extends State<SchedulePage> {
                   const Divider(
                     thickness: 1.0,
                   ),
-                  Expanded(
-                      flex: 2,
-                      child: Container(
-                        padding: EdgeInsets.all(16),
-                        child: ListView(
-                          shrinkWrap: true,
-                          scrollDirection: Axis.horizontal,
-                          children: schedules
-                              .map((schedule) =>
-                                  ScheduleSummaryWidget(schedule: schedule))
-                              .toList(),
-                        ),
-                      )),
+                  Container(
+                    height: 125,
+                    padding: EdgeInsets.all(16),
+                    child: ListView(
+                      shrinkWrap: true,
+                      scrollDirection: Axis.horizontal,
+                      children: schedules
+                          .map((schedule) =>
+                              ScheduleSummaryWidget(schedule: schedule))
+                          .toList(),
+                    ),
+                  ),
                   Container(
                     padding: EdgeInsets.all(16),
                     alignment: Alignment.topLeft,
@@ -118,19 +119,18 @@ class _SchedulePageState extends State<SchedulePage> {
                         style: TextStyle(color: CommonColors.neutral[200])),
                   ),
                   Expanded(
-                      flex: 9,
                       child: ListView.separated(
-                        itemBuilder: (context, index) => ScheduleItem(
-                          schedule: schedules[index],
-                        ),
-                        separatorBuilder: (context, index) => const Divider(
-                          indent: 70,
-                          endIndent: 18,
-                          thickness: 1,
-                        ),
-                        itemCount: schedules.length,
-                        shrinkWrap: true,
-                      ))
+                    itemBuilder: (context, index) => ScheduleItem(
+                      schedule: schedules[index],
+                    ),
+                    separatorBuilder: (context, index) => const Divider(
+                      indent: 70,
+                      endIndent: 18,
+                      thickness: 1,
+                    ),
+                    itemCount: schedules.length,
+                    shrinkWrap: true,
+                  ))
                 ],
               );
             }, loading: () {

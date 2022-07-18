@@ -94,20 +94,18 @@ class _SchedulePageState extends State<ScheduleHomePage> {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 HeaderWidget(schedule: getToday(schedules)),
-                SafeArea(
-                  child: Container(
-                    margin: EdgeInsets.symmetric(horizontal: 24),
-                    child: GridView.count(
-                      shrinkWrap: true,
-                      crossAxisSpacing: 1,
-                      mainAxisSpacing: 2,
-                      crossAxisCount: 3,
-                      children: List.generate(
-                          menu.length,
-                          (index) => MenuCardWidget(
-                                card: menu[index],
-                              )),
-                    ),
+                Container(
+                  margin: EdgeInsets.symmetric(horizontal: 24),
+                  child: GridView.count(
+                    shrinkWrap: true,
+                    crossAxisSpacing: 1,
+                    mainAxisSpacing: 2,
+                    crossAxisCount: 3,
+                    children: List.generate(
+                        menu.length,
+                        (index) => MenuCardWidget(
+                              card: menu[index],
+                            )),
                   ),
                 ),
                 Container(
