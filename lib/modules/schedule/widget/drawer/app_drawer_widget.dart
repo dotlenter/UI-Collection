@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 
 import '../../../../widget/colors/common_color.dart';
+import '../../../../widget/routes/empty_page_route_arguments.dart';
+import '../../../../widget/routes/page_route.dart';
+import '../../page/schedule_page_route.dart';
 import 'app_drawer_header_widget.dart';
 
 class AppDrawer extends StatefulWidget {
@@ -13,6 +16,9 @@ class AppDrawer extends StatefulWidget {
 }
 
 class _AppDrawerState extends State<AppDrawer> {
+  final IPageRoute<EmptyPageRouteArguments> route = SchedulePageRoute();
+  @override
+  String getRoute() => '/schedules';
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -24,6 +30,7 @@ class _AppDrawerState extends State<AppDrawer> {
             child: Column(
               children: const <Widget>[
                 AppDrawerHeaderWidget(),
+                
               ],
             ),
           ),

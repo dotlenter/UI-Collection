@@ -15,6 +15,42 @@ For help getting started with Flutter, view our
 [online documentation](https://flutter.dev/docs), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
 
+## Labels and Credits
+
+**Schedule Page** feature created by **Carlos Angelo L. Rayel**
+
+**Innovation Sprint** of **John Mar Lorenzo**
+
+**UI Design** of **Jairah-Mae Viduya**
+
+## Notes
+
+* Running on CLI (if ever): `flutter run -t lib/main_<variant>.dart --flavor <variant>;`
+
+* Run `flutter pub run build_runner build --delete-conflicting-outputs` to generate necessary code for the errors mostly relating to the `freezed` pubspec.
+
+---
+
+**ARCHITECTURE** – functional. Only domain can access both the page and data. Page cannot access data and vice-versa
+
+**TASK**: Schedule
+
+**TODO**: domain and page
+
+Page: fetch schedule on load
+
+To fetch, you need bloc or schedule bloc
+
+On bloc: mock a loading state using Future.delayed(duration)
+
+You initialize your fake data afterwards into entities
+
+That is what you pass onto the page/UI
+
+    Note: Enzo will be creating the contents of schedule_state.dart but that's only for comparison
+
+    In bloc, you are calling an event that returns a state
+    
 ## Advance Flutter Structures 101
 
 This project is a playground for new devs to master the Featured First Architecture.

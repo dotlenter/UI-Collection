@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../../widget/colors/common_color.dart';
+import '../../page/schedule_page_route.dart';
 import 'initials_avatar_widget.dart';
 
 class UserDetailsWidget extends StatelessWidget {
@@ -18,6 +19,7 @@ class UserDetailsWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         InitialsAvatarWidget(
           firstName: firstName,
@@ -48,6 +50,31 @@ class UserDetailsWidget extends StatelessWidget {
                   fontSize: 14,
                   height: 1.746,
                   letterSpacing: 0.3,
+                ),
+              ),
+              Container(
+                alignment: Alignment.topLeft,
+                child: TextButton(
+                  onPressed: () {
+                    SchedulePageRoute().navigate(context);
+                  },
+                  child: RichText(
+                    text: TextSpan(
+                      children: const [
+                        WidgetSpan(
+                          child: Icon(
+                            Icons.schedule,
+                            size: 14,
+                          ),
+                        ),
+                        TextSpan(text: " View Schedule"),
+                      ],
+                      style: TextStyle(
+                        color: CommonColors.green,
+                        fontSize: 14,
+                      ),
+                    ),
+                  ),
                 ),
               ),
             ],

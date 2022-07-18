@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ui_collection/modules/home/domain/entity/home_item_entity.dart';
-import 'package:ui_collection/modules/schedule/page/schedule_page_route.dart';
+import 'package:ui_collection/modules/schedule/page/schedule_home_page_route.dart';
 import 'package:ui_collection/modules/tap/pages/tap_page_route.dart';
 
 class HomeMockedEntities {
@@ -11,7 +11,7 @@ class HomeMockedEntities {
           dateAdded: DateTime(2019, 12, 12),
           createdBy: 'Enzo',
           imageUrl: 'imageUrl',
-          route: SchedulePageRoute(),
+          route: ScheduleHomePageRoute(),
         ),
         HomeItemEntity(
           title: 'Tap Dat',
@@ -27,7 +27,7 @@ class HomeMockedEntities {
           dateAdded: DateTime(2022, 07, 18),
           createdBy: 'Carlos',
           imageUrl: 'imageUrl',
-          route: SchedulePageRoute(),
+          route: ScheduleHomePageRoute(),
         ),
       ];
 }

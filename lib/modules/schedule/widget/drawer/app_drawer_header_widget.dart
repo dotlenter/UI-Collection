@@ -14,10 +14,14 @@ class AppDrawerHeaderWidget extends StatelessWidget {
         top: 68,
         bottom: 24,
       ),
-      child: UserDetailsWidget(
-        firstName: 'Mobile',
-        lastName: 'Developer',
-        position: 'Intern',
+      child: Column(
+        children: const [
+          UserDetailsWidget(
+            firstName: 'Mobile',
+            lastName: 'Developer',
+            position: 'Intern',
+          ),
+        ],
       ),
     );
   }
