@@ -55,25 +55,28 @@ class UserDetailsWidget extends StatelessWidget {
               Container(
                 alignment: Alignment.topLeft,
                 child: TextButton(
-                    onPressed: () {
-                      SchedulePageRoute().navigate(context);
-                    },
-                    child: RichText(
-                      text: TextSpan(
-                          children: const [
-                            WidgetSpan(
-                                child: Icon(
-                              Icons.schedule,
-                              size: 14,
-                            )),
-                            TextSpan(text: " View Schedule"),
-                          ],
-                          style: TextStyle(
-                            color: CommonColors.green,
-                            fontSize: 14,
-                          )),
-                    )),
-              )
+                  onPressed: () {
+                    SchedulePageRoute().navigate(context);
+                  },
+                  child: RichText(
+                    text: TextSpan(
+                      children: const [
+                        WidgetSpan(
+                          child: Icon(
+                            Icons.schedule,
+                            size: 14,
+                          ),
+                        ),
+                        TextSpan(text: " View Schedule"),
+                      ],
+                      style: TextStyle(
+                        color: CommonColors.green,
+                        fontSize: 14,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
             ],
           ),
         ),

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:ui_collection/core/mocked_entities/schedule_mocked_entities/schedule_mocked_entities.dart';
-import 'package:ui_collection/modules/schedule/domain/entities/schedule_item_entity.dart';
+
+import '../entities/schedule_item_entity_test.dart';
 
 void main() {
   test('Schedule entity should be of type ScheduleItemEntity', () {

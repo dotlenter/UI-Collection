@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:ui_collection/modules/schedule/domain/entities/schedule_item_entity.dart';
+
+import '../../../modules/schedule/domain/entities/schedule_item_entity.dart';
 
 class ScheduleMockedEntities {
   static List<ScheduleItemEntity> mockWeek = [

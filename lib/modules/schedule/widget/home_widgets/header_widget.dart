@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:ui_collection/modules/schedule/domain/entities/schedule_item_entity.dart';
 
+import '../../domain/entities/schedule_item_entity.dart';
 import 'home_user_details_widget.dart';
 
 class HeaderWidget extends StatelessWidget {

@@ -1,5 +1,4 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:ui_collection/modules/schedule/domain/entities/home_card_entity.dart';
 
 import 'home_card_entity.dart';
 

@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
-import 'package:ui_collection/modules/schedule/domain/entities/home_card_entity.dart';
-import 'package:ui_collection/widget/colors/common_color.dart';
+
+import '../../../../widget/colors/common_color.dart';
+import '../../domain/entities/home_card_entity.dart';
 
 class MenuCardWidget extends StatelessWidget {
   final HomeCardEntity card;

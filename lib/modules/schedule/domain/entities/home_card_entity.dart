@@ -5,6 +5,8 @@ part 'home_card_entity.freezed.dart';
 
 @freezed
 class HomeCardEntity with _$HomeCardEntity {
-  factory HomeCardEntity({required IconData menuIcon, required String title}) =
-      _HomeCardEntity;
+  factory HomeCardEntity({
+    required IconData menuIcon,
+    required String title,
+  }) = _HomeCardEntity;
 }

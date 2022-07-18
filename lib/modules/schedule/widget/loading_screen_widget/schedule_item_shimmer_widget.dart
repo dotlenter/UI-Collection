@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:ui_collection/widget/colors/common_color.dart';
 
+import '../../../../widget/colors/common_color.dart';
 import '../../domain/entities/schedule_item_entity.dart';
 
 class ScheduleItemShimmer extends StatelessWidget {
